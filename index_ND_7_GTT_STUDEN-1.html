@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ND_7 GTT STUDEN — Cyber Neon</title>
+<style>
+:root{--bg:#050a12;--panel:#0b1421;--panel2:#101d2d;--cyan:#00e5ff;--blue:#2489ff;--green:#2ce6a3;--red:#ff5278;--gold:#ffc857;--muted:#8192a8;--line:rgba(0,229,255,.16);--text:#eaf4ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -5%,#102642 0,transparent 36%),radial-gradient(ellipse at 95% 5%,#071e35 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:30px 30px}
+header{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid #ffffff12;background:#050a12cc;backdrop-filter:blur(14px);position:sticky;top:0;z-index:10}
+.brand{font-weight:900;letter-spacing:1.7px;font-size:19px}.brand span{color:var(--cyan);text-shadow:0 0 16px #00e5ff66}
+.header-right{display:flex;align-items:center;gap:9px}.badge{font-size:10px;letter-spacing:1px;border:1px solid #00e5ff55;color:var(--cyan);border-radius:99px;padding:7px 10px;background:#00e5ff0b}.badge.demo{color:var(--gold);border-color:#ffc85755}
+main{max-width:1500px;margin:auto;padding:18px 20px 32px}.topline{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:15px;flex-wrap:wrap}.title h1{margin:0;font-size:clamp(20px,3vw,29px);letter-spacing:.3px}.title p{margin:5px 0 0;color:var(--muted);font-size:11px}.controls{display:flex;gap:4px;flex-wrap:wrap}.controls .btn{padding:5px 7px;font-size:9px;border-radius:7px;min-width:28px}.btn{background:#071421;border:1px solid var(--line);color:var(--cyan);border-radius:9px;padding:8px 11px;font-size:11px;cursor:pointer}.btn:hover{background:#00e5ff12}.btn.active{background:#00e5ff14;border-color:var(--cyan)}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.panel{background:linear-gradient(145deg,#0b1827e8,#07101be8);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 35px #0005, inset 0 1px #ffffff08;backdrop-filter:blur(14px);padding:14px;position:relative;overflow:hidden}.panel:after{content:"";position:absolute;right:-50px;top:-50px;width:130px;height:130px;background:var(--cyan);opacity:.045;filter:blur(40px);pointer-events:none}.metric-label{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:1.2px}.metric{font-size:23px;font-weight:800;margin-top:8px}.metric-sub{font-size:10px;color:var(--muted);margin-top:5px}.positive{color:var(--green)}.negative{color:var(--red)}.cyan{color:var(--cyan)}.yellow{color:var(--gold)}
+.content{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);gap:12px;margin-top:12px}.panel-title{display:flex;justify-content:space-between;align-items:center;margin:0 0 12px;font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--cyan)}.chart-wrap{height:320px;position:relative}.chart-wrap canvas{width:100%;height:100%;display:block}.chart-tools{display:flex;gap:5px}.chart-tools button{padding:5px 8px;font-size:9px}.table-like{display:grid;gap:7px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px;border-radius:9px;background:#ffffff04;border:1px solid #ffffff09;font-size:11px}.row .key{color:#9aabc0}.tag{font-size:9px;border-radius:50px;padding:4px 8px;border:1px solid #00e5ff33;color:var(--cyan);background:#00e5ff08;white-space:nowrap}.tag.green{color:var(--green);border-color:#2ce6a333}.tag.red{color:var(--red);border-color:#ff527833}.tag.gold{color:var(--gold);border-color:#ffc85733}.mtf{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.mtf div{background:#ffffff05;border:1px solid #ffffff0b;border-radius:8px;padding:9px 5px;text-align:center}.mtf b{display:block;font-size:10px;margin-bottom:6px}.mtf small{font-size:9px;color:var(--green)}.section-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.zonebox{padding:11px;border-radius:10px;background:#ffffff04;border:1px solid #ffffff0a;margin-bottom:8px}.zonebox.buy{border-left:2px solid var(--green)}.zonebox.sell{border-left:2px solid var(--red)}.zonebox strong{font-size:11px}.zonebox .price{font-size:13px;font-weight:700;margin-top:6px}.zonebox small{display:block;color:var(--muted);margin-top:5px;font-size:9px}.rulebox{font-size:10px;color:#a7b7ca;line-height:1.65;padding:10px;border:1px dashed #00e5ff30;border-radius:9px}.rulebox b{color:var(--text)}.signal{display:flex;align-items:center;justify-content:center;min-height:62px;border-radius:11px;border:1px solid #ffc85730;background:#ffc85708;text-align:center;font-size:14px;font-weight:800;color:var(--gold);letter-spacing:1px}.history{width:100%;border-collapse:collapse;font-size:10px}.history th{text-align:left;color:var(--muted);font-weight:500;padding:9px 6px;border-bottom:1px solid #ffffff12}.history td{padding:9px 6px;border-bottom:1px solid #ffffff08}.history .demo-label{color:var(--gold)}footer{text-align:center;color:#60748d;font-size:9px;padding:22px 0 4px;letter-spacing:.5px}
+
+.main-menu{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px;padding:7px 1px}
+.menu3d{background:linear-gradient(145deg,#10263a,#07111c);color:#a9c3d8;border:1px solid #00e5ff28;border-radius:10px;padding:9px 11px;font-size:10px;cursor:pointer;box-shadow:0 4px 0 #02060b,0 8px 18px #0007,inset 0 1px #ffffff15;transition:.15s}
+.menu3d span{color:var(--cyan);font-size:12px;margin-right:5px}
+.menu3d:hover{transform:translateY(-2px);border-color:#00e5ff70;box-shadow:0 6px 0 #02060b,0 12px 24px #00e5ff12}
+.menu3d:active{transform:translateY(2px);box-shadow:0 2px 0 #02060b}
+.menu3d.active{color:#effcff;background:linear-gradient(145deg,#10344b,#071722);border-color:#00e5ff90;box-shadow:0 4px 0 #02060b,0 0 18px #00e5ff16,inset 0 0 16px #00e5ff10}
+.section-focus{outline:1px solid #00e5ff55;box-shadow:0 0 25px #00e5ff12}
+@media(max-width:600px){.main-menu{gap:5px}.menu3d{padding:7px 8px;font-size:9px}}
+@media(max-width:1000px){.content{grid-template-columns:1fr}.grid4{grid-template-columns:repeat(2,1fr)}.chart-wrap{height:270px}}
+@media(max-width:600px){header{padding:0 12px;height:60px}.brand{font-size:15px}.header-right{gap:5px}.badge{font-size:8px;padding:6px 8px}main{padding:12px}.grid4{gap:7px}.panel{padding:11px}.metric{font-size:19px}.content,.section-grid{grid-template-columns:1fr}.chart-wrap{height:240px}.mtf{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="brand">ND_7 <span>ALGO PRO</span></div><div class="header-right"><span class="badge" id="connectionBadge">● CONNECTING</span><span class="badge demo">LIVE DATA · PAPER ONLY</span></div></header>
+<main>
+<div class="topline"><div class="title"><h1>Crypto Market Intelligence</h1><p>Price action · Liquidity · Zones · Structure · Demo signals</p></div>
+<div class="controls"><button class="btn active" onclick="setTF('1m',this)">1m</button><button class="btn" onclick="setTF('3m',this)">3m</button><button class="btn" onclick="setTF('5m',this)">5m</button><button class="btn" onclick="setTF('15m',this)">15m</button><button class="btn" onclick="setTF('30m',this)">30m</button><button class="btn" onclick="setTF('1h',this)">1H</button><button class="btn" onclick="setTF('4h',this)">4H</button><button class="btn" onclick="setTF('1d',this)">1D</button></div></div>
+<nav class="main-menu" aria-label="Main navigation">
+<button class="menu3d active" onclick="goSection('overview',this)"><span>◈</span>Dashboard</button>
+<button class="menu3d" onclick="goSection('liquidity',this)"><span>⌁</span>Liquidity</button>
+<button class="menu3d" onclick="goSection('zones',this)"><span>▧</span>Zones</button>
+<button class="menu3d" onclick="goSection('orderblocks',this)"><span>◫</span>Order Blocks</button>
+<button class="menu3d" onclick="goSection('trend',this)"><span>↗</span>Trend</button>
+<button class="menu3d" onclick="goSection('strategy',this)"><span>⌘</span>Strategy</button>
+<button class="menu3d" onclick="goSection('demo',this)"><span>▶</span>Demo Trading</button>
+<button class="menu3d" onclick="goSection('history',this)"><span>▤</span>History</button>
+<button class="menu3d" onclick="goSection('settings',this)"><span>⚙</span>Settings</button>
+</nav>
+<div class="grid4">
+<div class="panel"><div class="metric-label">BTC / USD · LIVE</div><div class="metric" id="btcPrice">Connecting…</div><div class="metric-sub" id="btcChange">Waiting for market feed</div></div>
+<div class="panel"><div class="metric-label">Overall Trend</div><div class="metric cyan" id="overallTrend">—</div><div class="metric-sub">Computed from live candles</div></div>
+<div class="panel"><div class="metric-label">Liquidity Target</div><div class="metric yellow" id="liqTarget">—</div><div class="metric-sub" id="liqTargetSub">Live pivot-based estimate</div></div>
+<div class="panel"><div class="metric-label">Market Condition</div><div class="metric" id="marketCondition">—</div><div class="metric-sub" id="marketConditionSub">Live range / volatility filter</div></div>
+</div>
+<div class="content">
+<div class="panel"><div class="panel-title"><span>Price Action Chart</span><span class="chart-tools"><button class="btn" onclick="loadCandles()">Refresh</button></span></div><div class="chart-wrap"><canvas id="chart"></canvas></div></div>
+<div class="panel"><div class="panel-title"><span>Liquidity Map</span><span class="tag">STRUCTURE</span></div>
+<div class="table-like">
+<div class="row"><span class="key">Buy-side liquidity</span><span class="tag green" id="buyLiquidity">—</span></div>
+<div class="row"><span class="key">Sell-side liquidity</span><span class="tag red" id="sellLiquidity">—</span></div>
+<div class="row"><span class="key">Nearest target</span><span class="tag gold" id="nearestPool">—</span></div>
+<div class="row"><span class="key">Liquidity sweep</span><span class="tag" id="sweepStatus">Calculating…</span></div>
+<div class="row"><span class="key">Market structure</span><span class="tag green" id="structureStatus">—</span></div>
+<div class="row"><span class="key">Sideways detection</span><span class="tag" id="sidewaysStatus">—</span></div>
+</div></div>
+</div>
+<div class="section-grid">
+<div class="panel"><div class="panel-title"><span>1H Supply / Demand Zones</span><span class="tag">1H</span></div>
+<div class="zonebox buy"><strong class="positive">DEMAND / BUY ZONE</strong><div class="price" id="buyZonePrice">Waiting for 1H candles</div><small id="buyZoneNote">Pivot-derived zone · informational</small></div>
+<div class="zonebox sell"><strong class="negative">SUPPLY / SELL ZONE</strong><div class="price" id="sellZonePrice">Waiting for 1H candles</div><small id="sellZoneNote">Pivot-derived zone · informational</small></div>
+<div class="row"><span class="key">15M Order Block</span><span class="tag" id="obStatus">Calculating…</span></div>
+</div>
+<div class="panel"><div class="panel-title"><span>Trend Matrix</span><span class="tag">MULTI-TF</span></div>
+<div class="mtf"><div><b>1m</b><small id="trend_1M" class="positive">—</small></div><div><b>3m</b><small id="trend_3M" class="positive">—</small></div><div><b>5m</b><small id="trend_5M" class="positive">—</small></div><div><b>15m</b><small id="trend_15M" class="positive">—</small></div><div><b>30m</b><small id="trend_30M" class="positive">—</small></div><div><b>1H</b><small id="trend_1h" class="positive">—</small></div><div><b>4H</b><small class="yellow">NEUTRAL</small></div><div><b>1D</b><small class="yellow">NEUTRAL</small></div></div>
+</div>
+<div class="panel"><div class="panel-title"><span>Entry Setup Logic</span><span class="tag gold">RULE-BASED</span></div>
+<div class="rulebox"><b>SELL setup:</b> Price reaches 1H Sell Zone → a 15M bullish candle touches zone → record that candle LOW → demo SELL setup only when that LOW breaks.<br><br><b>BUY setup:</b> Price reaches 1H Buy Zone → a 15M bearish candle touches zone → record that candle HIGH → demo BUY setup only when that HIGH breaks.</div>
+<div class="signal" id="ruleSignal" style="margin-top:10px">LIVE ANALYSIS · WAIT</div>
+</div>
+<div class="panel"><div class="panel-title"><span>Risk Reference / Demo Journal</span><span class="tag gold">PAPER ONLY</span></div>
+<div class="row"><span class="key">Fixed SL reference</span><strong>400 points</strong></div><div class="row"><span class="key">Paper setup</span><span class="tag" id="paperSetup">No setup</span></div><div class="row"><span class="key">Real order execution</span><span class="tag red">Disabled</span></div>
+<table class="history"><thead><tr><th>Type</th><th>Reference</th><th>Status</th></tr></thead><tbody id="paperHistory"><tr><td class="demo-label">Paper</td><td>—</td><td>Waiting</td></tr></tbody></table>
+</div>
+</div>
+<footer>LIVE PUBLIC MARKET DATA · ANALYSIS IS INDICATIVE · PAPER SIMULATION ONLY · NO REAL-MONEY ORDER EXECUTION</footer>
+</main>
+
+<script>
+const API='https://api.binance.com/api/v3';
+const WS='wss://stream.binance.com:9443/ws/btcusdt@trade';
+let selectedTF='1m', candles=[], livePrice=null, lastTrade=null, socket=null, reconnectTimer=null;
+let usdtInr=83.5, paperLogs=[], lastSetup='';
+const tfMap={'1m':'1m','3m':'3m','5m':'5m','15m':'15m','30m':'30m','1h':'1h','4h':'4h','1d':'1d'};
+function fmtUSD(n){return n==null?'—':'$'+Number(n).toLocaleString('en-US',{maximumFractionDigits:2})}
+function fmtINR(n){return n==null?'—':'₹'+Number(n).toLocaleString('en-IN',{maximumFractionDigits:0})}
+function setBadge(state){const b=document.getElementById('connectionBadge');b.textContent='● '+state;b.style.color=state==='LIVE'?'var(--green)':state==='CONNECTING'?'var(--gold)':'var(--red)';}
+async function loadFX(){try{const r=await fetch('https://open.er-api.com/v6/latest/USD');if(r.ok){const j=await r.json();if(j.rates?.INR)usdtInr=j.rates.INR;}}catch(e){}}
+async function loadCandles(){
+  setBadge(socket&&socket.readyState===1?'LIVE':'CONNECTING');
+  const interval=tfMap[selectedTF]||'1m';
+  try{
+    const r=await fetch(`${API}/klines?symbol=BTCUSDT&interval=${interval}&limit=120`);
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const rows=await r.json();
+    candles=rows.map(k=>({time:k[0],o:+k[1],h:+k[2],l:+k[3],c:+k[4],v:+k[5]}));
+    analyze();
+    drawChart();
+  }catch(e){document.getElementById('marketConditionSub').textContent='Market API unavailable: '+e.message;setBadge('DISCONNECTED')}
+}
+function connectWS(){
+ try{socket=new WebSocket(WS);setBadge('CONNECTING');
+ socket.onopen=()=>setBadge('LIVE');
+ socket.onmessage=e=>{const d=JSON.parse(e.data);livePrice=+d.p;lastTrade=d;updatePrice();if(candles.length){const c=candles[candles.length-1];c.c=livePrice;c.h=Math.max(c.h,livePrice);c.l=Math.min(c.l,livePrice);analyze();drawChart();}};
+ socket.onclose=()=>{setBadge('DISCONNECTED');clearTimeout(reconnectTimer);reconnectTimer=setTimeout(connectWS,3000)};
+ socket.onerror=()=>{try{socket.close()}catch(e){}};
+ }catch(e){setBadge('DISCONNECTED')}
+}
+function updatePrice(){
+ if(livePrice==null)return;
+ document.getElementById('btcPrice').textContent=fmtUSD(livePrice);
+ document.getElementById('btcPrice').title='Approx INR: '+fmtINR(livePrice*usdtInr);
+ if(lastTrade){const change=+lastTrade.p;document.getElementById('btcChange').textContent='Live trade · Approx '+fmtINR(livePrice*usdtInr);document.getElementById('btcChange').className='metric-sub cyan';}
+}
+function setTF(tf,btn){selectedTF=tf;document.querySelectorAll('.controls .btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');loadCandles();}
+function goSection(name,btn){document.querySelectorAll('.menu3d').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const targets={overview:document.querySelector('.grid4'),liquidity:document.querySelector('.content'),zones:document.querySelector('.section-grid'),orderblocks:document.querySelector('.section-grid'),trend:document.querySelector('.section-grid'),strategy:document.querySelector('.section-grid'),demo:document.querySelector('.section-grid'),history:document.querySelector('.section-grid'),settings:document.querySelector('.topline')};let target=targets[name];if(target){target.scrollIntoView({behavior:'smooth',block:'start'});target.classList.add('section-focus');setTimeout(()=>target.classList.remove('section-focus'),1100)}}
+function pivotHigh(arr,i,n=3){for(let j=i-n;j<=i+n;j++){if(j<0||j>=arr.length||j===i)continue;if(arr[j].h>=arr[i].h)return false}return true}
+function pivotLow(arr,i,n=3){for(let j=i-n;j<=i+n;j++){if(j<0||j>=arr.length||j===i)continue;if(arr[j].l<=arr[i].l)return false}return true}
+function getPivots(arr){let highs=[],lows=[];for(let i=3;i<arr.length-3;i++){if(pivotHigh(arr,i))highs.push(arr[i]);if(pivotLow(arr,i))lows.push(arr[i])}return {highs,lows}}
+function trendOf(arr){if(arr.length<20)return 'NEUTRAL';let recent=arr.slice(-20),mean=recent.reduce((s,c)=>s+c.c,0)/recent.length;let first=recent[0].c,last=recent.at(-1).c;let pct=(last-first)/first;return pct>.002&&last>mean?'BULL':pct<-.002&&last<mean?'BEAR':'NEUTRAL'}
+async function fetchTF(tf){try{let r=await fetch(`${API}/klines?symbol=BTCUSDT&interval=${tf}&limit=60`);if(!r.ok)throw 0;return (await r.json()).map(k=>({time:k[0],o:+k[1],h:+k[2],l:+k[3],c:+k[4]}))}catch(e){return []}}
+async function analyze(){
+ if(!candles.length)return;
+ const {highs,lows}=getPivots(candles),cur=livePrice??candles.at(-1).c;
+ let upper=highs.filter(x=>x.h>cur).sort((a,b)=>a.h-b.h)[0],lower=lows.filter(x=>x.l<cur).sort((a,b)=>b.l-a.l)[0];
+ document.getElementById('buyLiquidity').textContent=lower?fmtUSD(lower.l):'—';
+ document.getElementById('sellLiquidity').textContent=upper?fmtUSD(upper.h):'—';
+ const target=upper&&lower?(cur-lower.l<upper.h-cur?lower:upper):(upper||lower);
+ document.getElementById('liqTarget').textContent=target?fmtUSD(target.h??target.l):'—';
+ document.getElementById('liqTargetSub').textContent=target?(target.h?'Upper pool':'Lower pool'):'No nearby pivot';
+ document.getElementById('nearestPool').textContent=target?(target.h?'Upper':'Lower'):'—';
+ document.getElementById('sweepStatus').textContent=(lower&&cur<lower.l)||(upper&&cur>upper.h)?'Sweep detected':'No sweep';
+ document.getElementById('structureStatus').textContent=highs.length>1&&lows.length>1?(highs.at(-1).h>highs.at(-2).h&&lows.at(-1).l>lows.at(-2).l?'HH / HL':highs.at(-1).h<highs.at(-2).h&&lows.at(-1).l<lows.at(-2).l?'LH / LL':'Mixed'):'—';
+ const range=candles.slice(-20),hi=Math.max(...range.map(x=>x.h)),lo=Math.min(...range.map(x=>x.l)),avg=range.reduce((s,x)=>s+x.c,0)/range.length;
+ const sideways=(hi-lo)/avg<0.012;document.getElementById('sidewaysStatus').textContent=sideways?'YES · RANGE':'NO · ACTIVE';
+ document.getElementById('marketCondition').textContent=sideways?'SIDEWAYS':'TRENDING';
+ document.getElementById('marketConditionSub').textContent='20-bar range '+(((hi-lo)/avg)*100).toFixed(2)+'%';
+ document.getElementById('overallTrend').textContent=trendOf(candles);
+ document.getElementById('overallTrend').className='metric '+(trendOf(candles)==='BULL'?'positive':trendOf(candles)==='BEAR'?'negative':'yellow');
+ // 1H zones from latest confirmed pivot candles
+ const oneH=await fetchTF('1h'),p1=getPivots(oneH);
+ let demand=p1.lows.at(-1),supply=p1.highs.at(-1);
+ document.getElementById('buyZonePrice').textContent=demand?fmtUSD(demand.l)+' — '+fmtUSD(demand.l+(demand.h-demand.l)*.35):'No confirmed pivot';
+ document.getElementById('sellZonePrice').textContent=supply?fmtUSD(supply.h-(supply.h-supply.l)*.35)+' — '+fmtUSD(supply.h):'No confirmed pivot';
+ document.getElementById('buyZoneNote').textContent=demand?'Last 1H pivot low candle · estimated zone':'Waiting for enough 1H data';
+ document.getElementById('sellZoneNote').textContent=supply?'Last 1H pivot high candle · estimated zone':'Waiting for enough 1H data';
+ // 15m pivot block approximation
+ const fifteen=await fetchTF('15m'),p15=getPivots(fifteen);
+ const ob=p15.highs.at(-1)||p15.lows.at(-1);
+ document.getElementById('obStatus').textContent=ob?fmtUSD(ob.l)+'–'+fmtUSD(ob.h):'No pivot block';
+ // MTF trend grid
+ const map={'1m':'1m','3m':'3m','5m':'5m','15m':'15m','30m':'30m','1H':'1h','4H':'4h','1D':'1d'};
+ for(const [label,interval] of Object.entries(map)){const arr=label===selectedTF?candles:await fetchTF(interval);let el=document.getElementById('trend_'+label.replace('m','M').replace('H','h').replace('D','d'));if(el){let t=trendOf(arr);el.textContent=t;el.className=t==='BULL'?'positive':t==='BEAR'?'negative':'yellow'}}
+ // rule logic: approximate zone touch then candle reference break using current TF's 15m data
+ const d15=fifteen.at(-1),prev15=fifteen.at(-2);
+ let signal='LIVE ANALYSIS · WAIT',setup='No setup';
+ if(supply&&d15&&d15.c>d15.o&&d15.h>=supply.l&&d15.h<=supply.h*1.003&&livePrice<d15.l){signal='SELL CONDITION · CANDLE LOW BROKEN';setup='SELL · paper only';}
+ else if(demand&&d15&&d15.c<d15.o&&d15.l<=demand.h&&d15.l>=demand.l*.997&&livePrice>d15.h){signal='BUY CONDITION · CANDLE HIGH BROKEN';setup='BUY · paper only';}
+ else if(supply&&d15&&d15.c>d15.o&&d15.h>=supply.l&&d15.h<=supply.h*1.003){signal='SELL WATCH · LOW BREAK REQUIRED';setup='Watching sell';
+ }else if(demand&&d15&&d15.c<d15.o&&d15.l<=demand.h&&d15.l>=demand.l*.997){signal='BUY WATCH · HIGH BREAK REQUIRED';setup='Watching buy';}
+ document.getElementById('ruleSignal').textContent=signal;document.getElementById('paperSetup').textContent=setup;
+ if(signal.includes('CONDITION')&&signal!==lastSetup){lastSetup=signal;paperLogs.unshift({type:setup,ref:fmtUSD(livePrice),status:'Condition observed'});renderHistory()}
+}
+function renderHistory(){const tb=document.getElementById('paperHistory');tb.innerHTML=paperLogs.slice(0,10).map(x=>`<tr><td class="demo-label">${x.type}</td><td>${x.ref}</td><td>${x.status}</td></tr>`).join('')||'<tr><td colspan="3">No records yet</td></tr>'}
+function drawChart(){
+ const c=document.getElementById('chart'),ctx=c.getContext('2d'),r=c.getBoundingClientRect();if(!r.width||!r.height)return;c.width=r.width*devicePixelRatio;c.height=r.height*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);let w=r.width,h=r.height;
+ ctx.clearRect(0,0,w,h);ctx.strokeStyle='#ffffff0a';for(let i=0;i<6;i++){let y=i*h/5;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+ if(!candles.length){ctx.fillStyle='#8b9ab0';ctx.fillText('Loading live candles…',10,20);return}
+ let view=candles.slice(-Math.min(100,candles.length)),min=Math.min(...view.map(x=>x.l)),max=Math.max(...view.map(x=>x.h));let pad=(max-min)*.08||1;min-=pad;max+=pad;
+ const Y=v=>h-(v-min)/(max-min)*h,step=w/view.length,cw=Math.max(2,step*.65);
+ view.forEach((d,i)=>{let x=i*step+step*.15,up=d.c>=d.o;ctx.strokeStyle=up?'#2ce6a3':'#ff5278';ctx.fillStyle=ctx.strokeStyle;ctx.beginPath();ctx.moveTo(x+cw/2,Y(d.h));ctx.lineTo(x+cw/2,Y(d.l));ctx.stroke();ctx.fillRect(x,Math.min(Y(d.o),Y(d.c)),cw,Math.max(1,Math.abs(Y(d.o)-Y(d.c))))});
+ ctx.fillStyle='#8192a8';ctx.font='10px Arial';ctx.fillText(selectedTF.toUpperCase()+' · BINANCE BTCUSDT · LIVE',7,13);
+ ctx.fillText('High '+fmtUSD(max-pad)+'   Low '+fmtUSD(min+pad),7,h-7);
+}
+window.addEventListener('resize',drawChart);
+loadFX();loadCandles();connectWS();setInterval(loadCandles,60000);
+</script>
+
+</body></html>
